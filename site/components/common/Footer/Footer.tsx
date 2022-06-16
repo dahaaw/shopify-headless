@@ -8,6 +8,7 @@ import { Github, Vercel } from '@components/icons'
 import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
+import Image from 'next/image'
 
 interface Props {
   className?: string
@@ -169,11 +170,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
         <div className="container max-w-screen-xl mx-auto px-4">
           <div className="lg:flex justify-between">
             <div className="mb-3">
-              <img
+              <Image
                 src="/images/misc/payments.png"
                 height={24}
-                className="h-6"
-                alt="Payment methods"
+                width={'100%'}
+                layout="responsive"
+                alt="payment method"
               />
             </div>
             {/* col .// */}

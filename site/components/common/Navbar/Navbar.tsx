@@ -24,9 +24,9 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
             <div className="flex flex-wrap items-center">
               {/* Brand */}
               <div className="flex-shrink-0 mr-5">
-                <a href="/">
+                <Link href="/">
                   <Logo />
-                </a>
+                </Link>
               </div>
               {/* Brand .//end */}
               {/* Search */}
@@ -69,24 +69,36 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
           <div className="container max-w-screen-xl mx-auto px-4">
             {/* Bottom */}
             <div className="hidden lg:flex flex-1 items-center py-1">
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                Category
-              </a>
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                About
-              </a>
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                Services
-              </a>
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                Projects
-              </a>
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                Offers
-              </a>
-              <a className="px-3 py-2 rounded-md hover:bg-gray-100" href="#">
-                Others
-              </a>
+              <Link href="/Category">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Category
+                </div>
+              </Link>
+              <Link href="/About">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  About
+                </div>
+              </Link>
+              <Link href="/Services">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Services
+                </div>
+              </Link>
+              <Link href="/Projects">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Projects
+                </div>
+              </Link>
+              <Link href="/Offers">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Offers
+                </div>
+              </Link>
+              <Link href="/Others">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Others
+                </div>
+              </Link>
             </div>
             {/* Bottom //end */}
           </div>
@@ -99,18 +111,18 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
       {/* <div className={s.nav}>
         <div className="flex items-center flex-1">
           <Link href="/">
-            <a className={s.logo} aria-label="Logo">
+            <Link className={s.logo} aria-label="Logo">
               <Logo />
-            </a>
+            </Link>
           </Link>
 
           <nav className={s.navMenu}>
             <Link href="/search">
-              <a className={s.link}>All</a>
+              <Link className={s.link}>All</Link>
             </Link>
             {links?.map((l) => (
               <Link href={l.href} key={l.href}>
-                <a className={s.link}>{l.label}</a>
+                <Link className={s.link}>{l.label}</Link>
               </Link>
             ))}
           </nav>

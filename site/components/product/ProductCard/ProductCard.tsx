@@ -14,6 +14,7 @@ interface Props {
   noNameTag?: boolean
   imgProps?: Omit<ImageProps, 'src' | 'layout' | 'placeholder' | 'blurDataURL'>
   variant?: 'default' | 'slim' | 'simple' | 'new'
+  key: any
 }
 
 const placeholderImg = '/product-img-placeholder.svg'
@@ -24,6 +25,7 @@ const ProductCard: FC<Props> = ({
   className,
   noNameTag = false,
   variant = 'default',
+  key,
 }) => {
   const { price } = usePrice({
     amount: product.price.value,
@@ -38,7 +40,7 @@ const ProductCard: FC<Props> = ({
   )
 
   return (
-    <div>
+    <div key={key}>
       <article className="shadow-sm rounded bg-white border border-gray-200">
         <a href="#" className="block relative p-1">
           <Image

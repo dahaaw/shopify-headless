@@ -40,31 +40,28 @@ const UserNav: React.FC<{
       {process.env.COMMERCE_CUSTOMERAUTH_ENABLED && (
         <Dropdown>
           <DropdownTrigger>
-            <a
+            <div
               className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="#"
               onClick={() => (isCustomerLoggedIn ? null : openModal())}
             >
               <i className="text-gray-400 w-5 fa fa-user" />
               <span className="hidden lg:inline ml-1">
                 {!isCustomerLoggedIn && 'Sign in'}
               </span>
-            </a>
+            </div>
           </DropdownTrigger>
           <CustomerMenuContent />
         </Dropdown>
       )}
 
-      {process.env.COMMERCE_WISHLIST_ENABLED && (
-        <a
-          onClick={closeSidebarIfPresent}
-          className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-          href="/wishlist"
-        >
+      {/* {process.env.COMMERCE_WISHLIST_ENABLED && ( */}
+      <Link onClick={closeSidebarIfPresent} href="/wishlist">
+        <div className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300">
           <i className="text-gray-400 w-5 fa fa-heart" />
           <span className="hidden lg:inline ml-1">Wishlist</span>
-        </a>
-      )}
+        </div>
+      </Link>
+      {/* )} */}
 
       {process.env.COMMERCE_CART_ENABLED && (
         <a
