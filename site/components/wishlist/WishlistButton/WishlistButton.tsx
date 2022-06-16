@@ -65,19 +65,13 @@ const WishlistButton: FC<Props> = ({
   }
 
   return (
-    <button
-      aria-label="Add to wishlist"
-      className={cn(s.root, className)}
+    <a
+      className="px-3 py-2 inline-block text-white bg-blue border border-transparent rounded-md hover:bg-blue "
       onClick={handleWishlistChange}
-      {...props}
+      href="#"
     >
-      <Heart
-        className={cn(s.icon, {
-          [s.loading]: loading,
-          [s.inWishlist]: itemInWishlist,
-        })}
-      />
-    </button>
+      <i className="fa fa-heart" />
+    </a>
   )
 }
 
