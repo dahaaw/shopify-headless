@@ -1,7 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Logo = ({ className = '', ...props }) => (
-  <Image src="/images/logo.png" width="100" height={38} />
+  <Link href="/">
+    <Image
+      src="/images/logo.png"
+      className="cursor-pointer"
+      width="100%"
+      height={50}
+      layout="fixed"
+      alt="logo"
+    />
+  </Link>
 )
 
 export default Logo

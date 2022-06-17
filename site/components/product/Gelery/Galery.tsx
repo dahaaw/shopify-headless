@@ -8,6 +8,7 @@ const Galery: FC<any> = ({ images }) => {
       {/* gallery */}
       <div className="border border-gray-200 shadow-sm p-3 text-center rounded mb-5 ">
         <Image
+          quality={70}
           src={images[selected].url}
           width={'100%'}
           height={'100%'}
@@ -26,6 +27,7 @@ const Galery: FC<any> = ({ images }) => {
               onClick={() => setSelected(i)}
             >
               <Image
+                quality={10}
                 alt={img.altText}
                 src={img.url}
                 width={'100%'}

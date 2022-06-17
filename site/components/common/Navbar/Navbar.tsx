@@ -69,6 +69,11 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
           <div className="container max-w-screen-xl mx-auto px-4">
             {/* Bottom */}
             <div className="hidden lg:flex flex-1 items-center py-1">
+              <Link href="/">
+                <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                  Home
+                </div>
+              </Link>
               <Link href="/Category">
                 <div className="px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
                   Category

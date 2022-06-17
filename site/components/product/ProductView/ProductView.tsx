@@ -1,5 +1,3 @@
-import cn from 'clsx'
-import Image from 'next/image'
 import s from './ProductView.module.css'
 import { FC } from 'react'
 import type { Product } from '@commerce/types/product'
@@ -8,8 +6,6 @@ import { WishlistButton } from '@components/wishlist'
 import { ProductSlider, ProductCard } from '@components/product'
 import { Container, Text } from '@components/ui'
 import { SEO } from '@components/common'
-import ProductSidebar from '../ProductSidebar'
-import ProductTag from '../ProductTag'
 import Breadcrumb from '@components/common/Breadcrumb'
 import { Galery, Detail } from '@components/product'
 interface ProductViewProps {
@@ -35,10 +31,34 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
             <Galery images={product.images} />
             <Detail product={product} />
           </div>
-          {/* grid .// */}
         </div>
-        {/* container .// */}
       </section>
+
+      <div className="container max-w-screen-xl mx-auto px-4">
+        <section className="py-12 px-6 mb-10">
+          <Text variant="sectionHeading">Related Products</Text>
+          <div className={s.relatedProductsGrid}>
+            {relatedProducts.map((p) => (
+              <div
+                key={p.path}
+                className="animated fadeIn bg-accent-0 border border-accent-2"
+              >
+                <ProductCard
+                  noNameTag
+                  product={p}
+                  key={p.path}
+                  variant="simple"
+                  className="animated fadeIn"
+                  imgProps={{
+                    width: 300,
+                    height: 300,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
 
       {/* <Container className="max-w-none w-full" clean>
         <div className={cn(s.root, 'fit')}>
