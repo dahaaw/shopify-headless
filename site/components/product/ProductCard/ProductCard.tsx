@@ -42,30 +42,27 @@ const ProductCard: FC<Props> = ({
   return (
     <div key={key}>
       <article className="shadow-sm rounded bg-white border border-gray-200">
-        <a href="#" className="block relative p-1">
-          <Image
-            quality="85"
-            className="mx-auto w-auto"
-            src={product.images[0]?.url || placeholderImg}
-            alt={product.name || 'Product Image'}
-            width="100%"
-            height="100%"
-            layout="responsive"
-            {...imgProps}
-          />
-        </a>
+        <Image
+          quality="85"
+          className="mx-auto w-auto"
+          src={product.images[0]?.url || placeholderImg}
+          alt={product.name || 'Product Image'}
+          width="100%"
+          height="100%"
+          layout="responsive"
+          {...imgProps}
+        />
         <div className="p-4 border-t border-t-gray-200">
           <p className="font-semibold">{`${price} ${product.price?.currencyCode}`}</p>
-          <a href="#" className="block text-gray-600 mb-3 hover:text-blue-500">
+          <div className="block text-gray-600 mb-3 min-h-[50px] ">
             {product.name}
-          </a>
+          </div>
           <div className="flex">
-            <a
-              className="w-full px-4 py-2 inline-block text-white text-center bg-blue border border-transparent rounded-md hover:bg-blue mr-2"
-              href="#"
-            >
-              Add to cart
-            </a>
+            <Link href={`/product/${product.slug}`}>
+              <div className="w-full px-4 py-2 inline-block text-white text-center bg-blue border border-blue rounded-md hover:bg-transparent hover:text-blue mr-2 cursor-pointer">
+                view
+              </div>
+            </Link>
             {process.env.COMMERCE_WISHLIST_ENABLED && (
               <WishlistButton
                 className={s.wishlistButton}
@@ -74,6 +71,9 @@ const ProductCard: FC<Props> = ({
               />
             )}
           </div>
+          {/* <div className="flex mt-2">
+            
+          </div> */}
         </div>
       </article>
     </div>

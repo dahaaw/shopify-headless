@@ -1,9 +1,9 @@
 {
-  "title": "ACME Storefront | Powered by Next.js Commerce",
-  "titleTemplate": "%s - ACME Storefront",
+  "title": "H& Store | Powered by Next.js Commerce",
+  "titleTemplate": "%s - H& Store",
   "description": "Next.js Commerce - https://www.nextjs.org/commerce",
   "openGraph": {
-    "title": "ACME Storefront | Powered by Next.js Commerce",
+    "title": "H& Store | Powered by Next.js Commerce",
     "description": "Next.js Commerce - https://www.nextjs.org/commerce",
     "type": "website",
     "url": "https://nextjs.org/commerce",

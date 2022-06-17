@@ -10,6 +10,8 @@ import { Container, Text } from '@components/ui'
 import { SEO } from '@components/common'
 import ProductSidebar from '../ProductSidebar'
 import ProductTag from '../ProductTag'
+import Breadcrumb from '@components/common/Breadcrumb'
+import { Galery, Detail } from '@components/product'
 interface ProductViewProps {
   product: Product
   relatedProducts: Product[]
@@ -22,9 +24,23 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
     currencyCode: product.price.currencyCode!,
   })
 
+  console.log({ product })
   return (
     <>
-      <Container className="max-w-none w-full" clean>
+      <Breadcrumb />
+
+      <section className="bg-white py-10">
+        <div className="container max-w-screen-xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <Galery images={product.images} />
+            <Detail product={product} />
+          </div>
+          {/* grid .// */}
+        </div>
+        {/* container .// */}
+      </section>
+
+      {/* <Container className="max-w-none w-full" clean>
         <div className={cn(s.root, 'fit')}>
           <div className={cn(s.main, 'fit')}>
             <ProductTag
@@ -88,7 +104,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
             ))}
           </div>
         </section>
-      </Container>
+      </Container> */}
       <SEO
         title={product.name}
         description={product.description}
