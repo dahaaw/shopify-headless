@@ -1,5 +1,5 @@
 .root {
-  @apply bg-accent-9 text-accent-0 cursor-pointer inline-flex
+  @apply bg-blue rounded-md text-accent-0 cursor-pointer inline-flex
   px-10 py-5 leading-6 transition ease-in-out duration-150
   shadow-sm text-center justify-center uppercase
   border border-transparent items-center text-sm font-semibold
@@ -8,7 +8,7 @@
 }
 
 .root:hover {
-  @apply border-accent-9 bg-accent-6;
+  @apply border-accent-9 bg-blue rounded-md;
 }
 
 .root:focus {
@@ -16,11 +16,11 @@
 }
 
 .root[data-active] {
-  @apply bg-accent-6;
+  @apply bg-blue rounded-md;
 }
 
 .loading {
-  @apply bg-accent-1 text-accent-3 border-accent-2 cursor-not-allowed;
+  @apply bg-blue rounded-md text-accent-3 border-accent-2 cursor-not-allowed;
 }
 
 .slim {
@@ -28,11 +28,11 @@
 }
 
 .ghost {
-  @apply border border-accent-2 bg-accent-0 text-accent-9 text-sm;
+  @apply border border-accent-2 bg-blue rounded-md text-accent-9 text-sm;
 }
 
 .ghost:hover {
-  @apply border-accent-9 bg-accent-9 text-accent-0;
+  @apply border-accent-9 bg-blue rounded-md text-accent-0;
 }
 
 .naked {
@@ -46,7 +46,7 @@
 
 .disabled,
 .disabled:hover {
-  @apply text-accent-4 border-accent-2 bg-accent-1 cursor-not-allowed;
+  @apply text-accent-4 border-accent-2 bg-blue rounded-md cursor-not-allowed;
   filter: grayscale(1);
   -webkit-transform: translateZ(0);
   -webkit-perspective: 1000;

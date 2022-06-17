@@ -12,12 +12,14 @@ import type { Product, ProductVariant } from '@commerce/types/product'
 type Props = {
   productId: Product['id']
   variant: ProductVariant
+  text?: string
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const WishlistButton: FC<Props> = ({
   productId,
   variant,
   className,
+  text,
   ...props
 }) => {
   const { data } = useWishlist()
@@ -71,6 +73,7 @@ const WishlistButton: FC<Props> = ({
       href="#"
     >
       <i className="fa fa-heart" />
+      <span className="ml-2">{text && text}</span>
     </a>
   )
 }

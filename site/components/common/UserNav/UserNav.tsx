@@ -19,7 +19,8 @@ const countItem = (count: number, item: LineItem) => count + item.quantity
 
 const UserNav: React.FC<{
   className?: string
-}> = ({ className }) => {
+  sidebar?: boolean
+}> = ({ className, sidebar }) => {
   const { data } = useCart()
   const { data: isCustomerLoggedIn } = useCustomer()
   const {
@@ -41,12 +42,12 @@ const UserNav: React.FC<{
         <Dropdown>
           <DropdownTrigger>
             <div
-              className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+              className="cursor-pointer px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
               onClick={() => (isCustomerLoggedIn ? null : openModal())}
             >
               <i className="text-gray-400 w-5 fa fa-user" />
               <span className="hidden lg:inline ml-1">
-                {!isCustomerLoggedIn && 'Sign in'}
+                {!isCustomerLoggedIn && !sidebar && 'Sign in'}
               </span>
             </div>
           </DropdownTrigger>
@@ -56,9 +57,9 @@ const UserNav: React.FC<{
 
       {/* {process.env.COMMERCE_WISHLIST_ENABLED && ( */}
       <Link onClick={closeSidebarIfPresent} href="/wishlist">
-        <div className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300">
+        <div className="cursor-pointer px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300">
           <i className="text-gray-400 w-5 fa fa-heart" />
-          <span className="hidden lg:inline ml-1">Wishlist</span>
+          {!sidebar && <span className="hidden lg:inline ml-1">Wishlist</span>}
         </div>
       </Link>
       {/* )} */}
@@ -73,11 +74,11 @@ const UserNav: React.FC<{
           href="#"
         >
           {itemsCount > 0 && <span className={s.bagCount}>{itemsCount}</span>}
-          <span className="hidden lg:inline ml-2">
-            My cart <i className="text-gray-400 w-5 fa fa-shopping-cart" />
-          </span>
+          <i className="text-gray-400 w-5 fa fa-shopping-cart" />
+          {!sidebar && <span className="hidden lg:inline ml-2">My cart</span>}
         </a>
       )}
+
       {/* <nav className={cn(s.root, className)}>
        <ul className={s.list}> 
         {process.env.COMMERCE_CART_ENABLED && (

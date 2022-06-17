@@ -89,11 +89,12 @@ const CartItem = ({
             <a>
               <Image
                 onClick={() => closeSidebarIfPresent()}
-                className={s.productImage}
-                width={150}
-                height={150}
+                // className={s.productImage}
+                width={'50'}
+                height={'50'}
+                layout="responsive"
                 src={item.variant.image?.url || placeholderImg}
-                alt={item.variant.image?.altText || "Product Image"}
+                alt={item.variant.image?.altText || 'Product Image'}
                 unoptimized
               />
             </a>

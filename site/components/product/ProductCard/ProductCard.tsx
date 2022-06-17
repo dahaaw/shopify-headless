@@ -55,7 +55,8 @@ const ProductCard: FC<Props> = ({
         <div className="p-4 border-t border-t-gray-200">
           <p className="font-semibold">{`${price} ${product.price?.currencyCode}`}</p>
           <div className="block text-gray-600 mb-3 min-h-[50px] ">
-            {product.name}
+            {product.name.substring(0, 40)}
+            {product.name.length > 40 && '...'}
           </div>
           <div className="flex">
             <Link href={`/product/${product.slug}`}>
